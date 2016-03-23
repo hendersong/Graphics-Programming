@@ -36,6 +36,7 @@
           </IconStyle>
         </Style>
         <Point>
+		<altitudeMode>absolute</altitudeMode>
           <coordinates>-105.15217054635286,39.69068091362715,1874.5999755859375</coordinates>
         </Point>
       </Placemark>
@@ -68,11 +69,12 @@
           </IconStyle>
         </Style>
         <Point>
+		<altitudeMode>absolute</altitudeMode>
           <coordinates>-105.17379367724061,39.700934663414955,2053.0</coordinates>
         </Point>
       </Placemark>
       <Placemark>
-        <name>Lap 3</name>
+        <name>Mile 3</name>
         <description>&lt;table width = "320"&gt;&lt;tr&gt;&lt;td&gt;Time:&lt;/td&gt;&lt;td&gt;00:11:57&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Distance:&lt;/td&gt;&lt;td&gt;1.00 Miles&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Elevation Gain:&lt;/td&gt;&lt;td&gt;50 Feet&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Elevation Loss:&lt;/td&gt;&lt;td&gt;52 Feet&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Max Speed:&lt;/td&gt;&lt;td&gt;06:37 Miles per Hour&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</description>
         <Style>
           <IconStyle>
@@ -84,27 +86,30 @@
           </IconStyle>
         </Style>
         <Point>
+		<altitudeMode>absolute</altitudeMode>
           <coordinates>-105.18118131905794,39.70799105241895,2049.199951171875</coordinates>
         </Point>
       </Placemark>
       <Placemark>
-        <name>Lap 4</name>
+        <name>Mile 4</name>
         <description>&lt;table width = "320"&gt;&lt;tr&gt;&lt;td&gt;Time:&lt;/td&gt;&lt;td&gt;00:10:37&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Distance:&lt;/td&gt;&lt;td&gt;1.00 Miles&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Elevation Gain:&lt;/td&gt;&lt;td&gt;94 Feet&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Elevation Loss:&lt;/td&gt;&lt;td&gt;56 Feet&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Max Speed:&lt;/td&gt;&lt;td&gt;08:38 Miles per Hour&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</description>
         <Style>
           <IconStyle>
             <scale>1.0</scale>
             <Icon>
+			
               <href>http://maps.google.com/mapfiles/kml/shapes/flag.png</href>
             </Icon>
             <hotSpot yunits="fraction" y="0.0" xunits="fraction" x="0.45"/>
           </IconStyle>
         </Style>
         <Point>
+		<altitudeMode>absolute</altitudeMode>
           <coordinates>-105.17849902622402,39.704774748533964,2063.39990234375</coordinates>
         </Point>
       </Placemark>
       <Placemark>
-        <name>Lap 5</name>
+        <name>Mile 5</name>
         <description>&lt;table width = "320"&gt;&lt;tr&gt;&lt;td&gt;Time:&lt;/td&gt;&lt;td&gt;00:10:50&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Distance:&lt;/td&gt;&lt;td&gt;1.00 Miles&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Elevation Gain:&lt;/td&gt;&lt;td&gt;121 Feet&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Elevation Loss:&lt;/td&gt;&lt;td&gt;48 Feet&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Max Speed:&lt;/td&gt;&lt;td&gt;06:39 Miles per Hour&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</description>
         <Style>
           <IconStyle>
@@ -116,11 +121,12 @@
           </IconStyle>
         </Style>
         <Point>
+		<altitudeMode>absolute</altitudeMode>
           <coordinates>-105.1778440643102,39.702590089291334,2076.39990234375</coordinates>
         </Point>
       </Placemark>
       <Placemark>
-        <name>Lap 6</name>
+        <name>Mile 6</name>
         <description>&lt;table width = "320"&gt;&lt;tr&gt;&lt;td&gt;Time:&lt;/td&gt;&lt;td&gt;00:07:00&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Distance:&lt;/td&gt;&lt;td&gt;1.00 Miles&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Elevation Gain:&lt;/td&gt;&lt;td&gt;--&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Elevation Loss:&lt;/td&gt;&lt;td&gt;610 Feet&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Max Speed:&lt;/td&gt;&lt;td&gt;06:18 Miles per Hour&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</description>
         <Style>
           <IconStyle>
@@ -132,11 +138,12 @@
           </IconStyle>
         </Style>
         <Point>
+		<altitudeMode>absolute</altitudeMode>
           <coordinates>-105.18953799270093,39.697675528004766,1890.0</coordinates>
         </Point>
       </Placemark>
       <Placemark>
-        <name>Lap 7</name>
+        <name>Mile 7</name>
         <description>&lt;table width = "320"&gt;&lt;tr&gt;&lt;td&gt;Time:&lt;/td&gt;&lt;td&gt;00:10:37&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Distance:&lt;/td&gt;&lt;td&gt;1.00 Miles&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Elevation Gain:&lt;/td&gt;&lt;td&gt;143 Feet&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Elevation Loss:&lt;/td&gt;&lt;td&gt;195 Feet&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Max Speed:&lt;/td&gt;&lt;td&gt;06:31 Miles per Hour&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</description>
         <Style>
           <IconStyle>
@@ -148,11 +155,12 @@
           </IconStyle>
         </Style>
         <Point>
+		<altitudeMode>absolute</altitudeMode>
           <coordinates>-105.17869289964437,39.69085894525051,1879.800048828125</coordinates>
         </Point>
       </Placemark>
       <Placemark>
-        <name>Lap 8</name>
+        <name>Mile 8</name>
         <description>&lt;table width = "320"&gt;&lt;tr&gt;&lt;td&gt;Time:&lt;/td&gt;&lt;td&gt;00:10:06&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Distance:&lt;/td&gt;&lt;td&gt;1.00 Miles&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Elevation Gain:&lt;/td&gt;&lt;td&gt;19 Feet&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Elevation Loss:&lt;/td&gt;&lt;td&gt;80 Feet&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Max Speed:&lt;/td&gt;&lt;td&gt;07:00 Miles per Hour&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</description>
         <Style>
           <IconStyle>
@@ -164,11 +172,12 @@
           </IconStyle>
         </Style>
         <Point>
+		<altitudeMode>absolute</altitudeMode>
           <coordinates>-105.16971780918539,39.6814189106226,1866.4000244140625</coordinates>
         </Point>
       </Placemark>
       <Placemark>
-        <name>Lap 9</name>
+        <name>Mile 9</name>
         <description>&lt;table width = "320"&gt;&lt;tr&gt;&lt;td&gt;Time:&lt;/td&gt;&lt;td&gt;00:11:47&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Distance:&lt;/td&gt;&lt;td&gt;1.00 Miles&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Elevation Gain:&lt;/td&gt;&lt;td&gt;125 Feet&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Elevation Loss:&lt;/td&gt;&lt;td&gt;34 Feet&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Max Speed:&lt;/td&gt;&lt;td&gt;06:58 Miles per Hour&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</description>
         <Style>
           <IconStyle>
@@ -180,11 +189,12 @@
           </IconStyle>
         </Style>
         <Point>
+		<altitudeMode>absolute</altitudeMode>
           <coordinates>-105.15847465954721,39.686654498800635,1890.199951171875</coordinates>
         </Point>
       </Placemark>
       <Placemark>
-        <name>Lap 10</name>
+        <name>Mile 10</name>
         <description>&lt;table width = "320"&gt;&lt;tr&gt;&lt;td&gt;Time:&lt;/td&gt;&lt;td&gt;00:05:23&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Distance:&lt;/td&gt;&lt;td&gt;0.50 Miles&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Elevation Gain:&lt;/td&gt;&lt;td&gt;26 Feet&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Elevation Loss:&lt;/td&gt;&lt;td&gt;62 Feet&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Max Speed:&lt;/td&gt;&lt;td&gt;06:27 Miles per Hour&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</description>
         <Style>
           <IconStyle>
@@ -196,6 +206,7 @@
           </IconStyle>
         </Style>
         <Point>
+		<altitudeMode>absolute</altitudeMode>
           <coordinates>-105.15283447690308,39.69031018204987,1876.5999755859375</coordinates>
         </Point>
       </Placemark>
