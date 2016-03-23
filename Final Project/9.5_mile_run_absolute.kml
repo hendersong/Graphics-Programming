@@ -63,9 +63,9 @@
           <IconStyle>
             <scale>1.0</scale>
             <Icon>
-              <href>http://maps.google.com/mapfiles/kml/shapes/flag.png</href>
+              <href>http://static.wixstatic.com/media/62e31f_826fec17ef6440b0b60475eb824dfdad.gif</href>
             </Icon>
-            <hotSpot yunits="fraction" y="0.0" xunits="fraction" x="0.45"/>
+            <hotSpot yunits="fraction" y="0.0" xunits="fraction" x="0.0"/>
           </IconStyle>
         </Style>
         <Point>
@@ -138,7 +138,7 @@
           </IconStyle>
         </Style>
         <Point>
-		<altitudeMode>absolute</altitudeMode>
+		  <altitudeMode>absolute</altitudeMode>
           <coordinates>-105.18953799270093,39.697675528004766,1890.0</coordinates>
         </Point>
       </Placemark>
