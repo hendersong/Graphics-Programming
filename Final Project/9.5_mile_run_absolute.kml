@@ -28,7 +28,7 @@
         <description>&lt;table width = "320"&gt;&lt;tr&gt;&lt;td colspan="2"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="2"&gt;Thu, Mar 10, 2016 11:52 AM by &lt;a href="https://connect.garmin.com/explore?owner=gabehend&amp;sortField=relevance"&gt;gabehend&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="2"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Activity Type:&lt;/td&gt;&lt;td&gt;Trail Running&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Event Type:&lt;/td&gt;&lt;td&gt;Fitness&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Distance:&lt;/td&gt;&lt;td&gt;9.50 Miles&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Time:&lt;/td&gt;&lt;td&gt;01:45:39&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Elevation Gain:&lt;/td&gt;&lt;td&gt;Feet&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="2"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="2" align="right"&gt;&lt;a href="https://connect.garmin.com/activity/1080081358"&gt;View Details on Garmin Connect&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</description>
         <Style>
           <IconStyle>
-            <scale>0.5</scale>
+            <scale>0.005</scale>
             <Icon>
               <href>http://static.cdn-seekingalpha.com/uploads/2015/6/957061_14337863935295_rId6.png</href>
             </Icon>
@@ -216,7 +216,7 @@
         <description>&lt;table width = "320"&gt;&lt;tr&gt;&lt;td colspan="2"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="2"&gt;Thu, Mar 10, 2016 11:52 AM by &lt;a href="https://connect.garmin.com/explore?owner=gabehend&amp;sortField=relevance"&gt;gabehend&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="2"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Activity Type:&lt;/td&gt;&lt;td&gt;Trail Running&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Event Type:&lt;/td&gt;&lt;td&gt;Fitness&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Distance:&lt;/td&gt;&lt;td&gt;9.50 Miles&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Time:&lt;/td&gt;&lt;td&gt;01:45:39&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Elevation Gain:&lt;/td&gt;&lt;td&gt;Feet&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="2"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="2" align="right"&gt;&lt;a href="https://connect.garmin.com/activity/1080081358"&gt;View Details on Garmin Connect&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</description>
         <Style>
           <IconStyle>
-            <scale>0.25</scale>
+            <scale>0.05</scale>
             <Icon>
               <href>http://marilynmckenna.com/wp-content/uploads/2015/04/thumbnail.jpg</href>
             </Icon>
