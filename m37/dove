@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="googlebot" content="noindex, nofollow">
+
+  
+  
+
+  
+  
+  
+
+  
+
+  <script type="text/javascript" src="/js/lib/dummy.js"></script>
+
+  
+
+  
+
+  
+
+  
+    <link rel="stylesheet" type="text/css" href="/css/result-light.css">
+  
+
+  
+    
+      <script type="text/javascript" src="http://www.cs.unm.edu/~angel/WebGL/7E/Common/MV.js"></script>
+    
+  
+    
+      <script type="text/javascript" src="http://www.cs.unm.edu/~angel/WebGL/7E/Common/webgl-utils.js"></script>
+    
+  
+    
+      <script type="text/javascript" src="http://www.cs.unm.edu/~angel/WebGL/7E/Common/initShaders.js"></script>
+    
+  
+    
+      <script type="text/javascript" src="https://rawgit.com/hendersong/Graphics-Programming/master/m37/dove_vtx.js"></script>
+    
+  
+    
+      <script type="text/javascript" src="https://rawgit.com/hendersong/Graphics-Programming/master/m37/dove_fce.js"></script>
+    
+  
+
+  <style type="text/css">
+    body 
+{
+    background:#fff;
+    padding:0;
+    margin:0;
+    font-weight: bold;
+    overflow:hidden;
+    background-color: black;
+}
+
+#container
+{
+    margin: auto;
+    width: 512px;
+    height: 512px;
+}
+
+#toolbar
+{
+    width: 512px;
+    height: 512px;
+    background-color: rgb(200,200,200);
+}
+
+#view
+{
+     padding-top: 25px;
+}
+
+select
+{
+    width: 90px;
+}
+  </style>
+
+  <title>Project Three Revised dove by gabehend</title>
+
+  
+</head>
+
+<body>
+  	<script id="vertex-shader" type="x-shader/x-vertex">
+				attribute vec4 vPosition;
+				attribute vec4 vColor;
+        attribute vec4 vNormal;
+        
+        uniform vec4 lightPosition;
+    
+				uniform float xang;
+				uniform float yang;
+				uniform float zang;
+				uniform float scale;
+				uniform vec4 cm;
+        varying vec3 N, L, E, H;
+        uniform vec4 eyePosition;
+        
+        varying vec4 fColor;
+
+				void main()
+				{
+				    float s_z = sin( zang );
+				    float c_z = cos( zang );
+				    
+				    mat4 Rz = mat4( c_z, -s_z, 0.0, 0.0,
+						           s_z, c_z, 0.0, 0.0,
+						           0.0, 0.0, 1.0, 0.0,
+						           0.0, 0.0, 0.0, 1.0 );
+				    
+				    float s_y = sin( yang );
+				    float c_y = cos( yang );
+				    
+				    mat4 Ry = mat4( c_y, 0.0, s_y, 0.0,
+						           0.0, 1.0, 0.0, 0.0,
+						           -s_y, 0.0, c_y, 0.0,
+						           0.0, 0.0, 0.0, 1.0 );
+				    
+				    float s_x = sin( xang );
+				    float c_x = cos( xang );
+				    
+				    mat4 Rx = mat4( 1.0, 0.0, 0.0, 0.0,
+						           0.0, c_x, -s_x, 0.0,
+						           0.0, s_x, c_x, 0.0,
+						           0.0, 0.0, 0.0, 1.0 );
+				    
+				    mat4 S = mat4( scale, 0.0, 0.0, 0.0,
+						           0.0, scale, 0.0, 0.0,
+						           0.0, 0.0, scale, 0.0,
+						           0.0, 0.0, 0.0, 1.0 );
+				    
+				    mat4 T = mat4( 1.0, 0.0, 0.0, cm[0],
+						           0.0, 1.0, 0.0, cm[1],
+						           0.0, 0.0, 1.0, cm[2],
+						           0.0, 0.0, 0.0, 1.0 );
+
+				    mat4 modelViewMatrix = T*Rx*Ry*Rz*S;
+           
+        vec4 p = vPosition*modelViewMatrix;
+				vec4 eye = -eyePosition;
+        vec4 light = lightPosition;
+    
+        L = normalize( light.xyz - p.xyz );
+        E = normalize( eye.xyz - p.xyz );
+        N = normalize( ( modelViewMatrix*vNormal ).xyz );	
+	
+				H = normalize( L + E );
+				    
+				fColor = vColor;
+        gl_Position = p;
+            
+
+			}
+		</script>
+
+		<script id="fragment-shader" type="x-shader/x-fragment">
+			precision mediump float;
+			varying vec4 fColor;
+			uniform vec4 ambientProduct;
+			uniform vec4 specularProduct;
+			uniform float shininess;
+    
+			varying vec3 N, L, E, H;
+
+			void main()
+			{
+				vec4 ambient= ambientProduct;
+        vec4 diffuse=fColor*max(dot(L, N), 0.0);
+        
+        float Ks= pow(max(dot(N, H),0.0), shininess);
+        vec4 specular= specularProduct*Ks;
+            
+        if(dot(L, N) < 0.0){
+            	specular= vec4(0.0,0.0,0.0,1.0);
+							}
+        vec4 color= diffuse+ ambient+ specular;
+				color.a= 1.0;
+  
+    	 gl_FragColor = color;
+			}
+		</script>
+
+
+
+	<body onload="config()">
+    	<div id="container">    
+        	<div id="view">
+            	<canvas id="gl-canvas" width="512" height="512">
+            		Oops ... your browser doesn't support the HTML5 canvas element
+			</canvas>
+        	
+					<div id="toolbar">
+            Rx
+            <select id="rotx">
+                <option value="0">0</option>
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+                <option value="40">40</option>
+                <option value="50">50</option>
+                <option value="60">60</option>
+                <option value="70">70</option>
+                <option value="80">80</option>
+                <option value="90">90</option>
+                <option value="100">100</option>
+                <option value="110">110</option>
+            </select>
+            Ry
+            <select id="roty">
+                <option value="0">0</option>
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+                <option value="40">40</option>
+                <option value="50">50</option>
+                <option value="60">60</option>
+                <option value="70">70</option>
+                <option value="80">80</option>
+                <option value="90">90</option>
+                <option value="100">100</option>
+                <option value="110">110</option>
+            </select>
+            Rz
+            <select id="rotz">
+                <option value="0">0</option>
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+                <option value="40">40</option>
+                <option value="50">50</option>
+                <option value="60">60</option>
+                <option value="70">70</option>
+                <option value="80">80</option>
+                <option value="90">90</option>
+                <option value="100">100</option>
+                <option value="110">110</option>
+            </select>
+            Scale
+            <select id="scale">
+                <option value="1"selected>1</option>
+                <option value="2">2</option>
+                <option value="3" >3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                
+            </select>
+        </div>
+        </div>
+    	</div>
+	</body>
+  
+
+
+
+
+<script type='text/javascript'>//<![CDATA[
+
+console.clear();
+
+var gl;
+var vPosition, vColor, vNormal;
+var xang, yang, zang, sx, cm;
+
+var mesh = new Array();
+var color = new Array();
+var angles = new Array();
+var N=[];
+var normals= new Array();
+var dx = new Array();
+var dy = new Array();
+
+var canvas;
+var x, y, x_c, y_c, m, b;
+
+var eyePosition = vec4( 1.0, 0.0, 1.0, 0.0 );
+var lightPosition = vec4(1, -1, -1, 0.0 );
+
+var lightAmbient = vec4(0.2, 0.1, 0.1, 1.0 );
+var lightSpecular = vec4( 1.0, 1.0, 1.0, 1.0 );
+
+var materialAmbient = vec4( 1.0, 1.0, 1.0, 1.0 );
+var materialDiffuse = vec4( 1.0, 0.8, 0.0, 1.0 );
+var materialSpecular = vec4( 1.0, 1.0, 1.0, 1.0 );
+var materialShininess = 10.0;
+
+var ambientColor, diffuseColor, specularColor;
+var modelViewMatrix;
+
+
+
+
+
+
+function config() {
+    document.getElementById('rotx').onchange = function(event) { rotateX(); }
+    document.getElementById('roty').onchange = function(event) { rotateY(); }
+    document.getElementById('rotz').onchange = function(event) { rotateZ(); }
+    document.getElementById('scale').onchange = function(event) { scale(); }
+     document.getElementById('view').onclick = function(event) { getClickPosition(event) };
+  
+    
+    canvas = document.getElementById( "gl-canvas" );
+    
+    gl = WebGLUtils.setupWebGL( canvas );
+    if ( !gl ) { alert( "WebGL isn't available" ); }
+    
+    gl.clearDepth(1.0);                
+    gl.enable(gl.DEPTH_TEST);           
+    gl.depthFunc(gl.LEQUAL); 
+
+    //
+    //  Configure WebGL
+    //
+    gl.viewport( 0, 0, canvas.width, canvas.height );
+    
+    //  Load shaders and initialize attribute buffers
+    var program = initShaders( gl, "vertex-shader", "fragment-shader" );
+    gl.useProgram( program );
+    
+    gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+    
+    vPosition = gl.getAttribLocation( program, "vPosition" );
+    vColor = gl.getAttribLocation( program, "vColor" );
+    vNormal = gl.getAttribLocation( program, "vNormal" );
+    xang = gl.getUniformLocation( program, "xang" );
+    yang = gl.getUniformLocation( program, "yang" );
+    zang = gl.getUniformLocation( program, "zang" );
+    sx = gl.getUniformLocation( program, "scale" );
+    cm = gl.getUniformLocation( program, "cm" );
+    
+     ambientProduct=mult(lightAmbient, materialAmbient);
+     //diffuseProduct = mult(lightDiffuse, materialDiffuse);
+     specularProduct = mult(lightSpecular, materialSpecular);
+     
+    createNorm(); 
+    createMesh();
+    createColors();
+    bufferData();  
+ 
+    gl.uniform1f( sx, 1.0 );
+    gl.uniform4f( cm, 0.0, 0.0, 0.0, 0.0); 
+    
+    gl.uniform4fv(gl.getUniformLocation(program,"specularProduct"),flatten(specularProduct) );	
+    gl.uniform4fv( gl.getUniformLocation( program, "ambientProduct"), flatten(ambientProduct) );
+    gl.uniform4fv(gl.getUniformLocation(program,"lightPosition"),flatten(lightPosition) );
+    gl.uniform1f( gl.getUniformLocation(program, "shininess"),materialShininess ) ;
+    gl.uniform4fv( gl.getUniformLocation( program, "eyePosition" ), flatten(eyePosition) );
+    
+    x=80.0;
+    y=60.0;
+    x_c=0.0;
+    y_c=0.0;
+    m=0.0;
+    
+    animate();
+    
+}
+
+
+function rotateX() {
+          
+    var select = document.getElementById('rotx');
+    var ang_deg = select.options[select.selectedIndex].value; 
+    
+    var radian =  ang_deg * (Math.PI/180.0);
+    
+    console.log( 'rotate x = ' + radian );
+    
+    gl.uniform1f( xang, radian );
+    
+  
+}
+
+function getClickPosition( event ) {
+    
+    dx = [];
+    dy = [];
+    b=0;
+    
+    var parentPosition = getPosition(event.currentTarget);
+    x = ( event.clientX - parentPosition.x );
+    y = ( event.clientY - parentPosition.y );
+    
+    if ( x > canvas.width ) x = canvas.width;
+    if ( y > canvas.height ) y = canvas.height;
+    
+    x = (2*(x/canvas.width))-1.0;
+    y = (-2*(y/canvas.height))+1.0;
+    
+    var xx = (x-x_c)/N;
+    var yy = (y-y_c)/N;
+    
+    for ( var i=0; i<=N; i++ ) {
+        
+        dx.push( ( x_c+(i*xx) ) );
+        dy.push( ( y_c+(i*yy) ) );
+            
+    }
+    
+}
+
+function getPosition(element) {
+    var xPosition = 0;
+    var yPosition = 0;
+      
+    while (element) {
+        xPosition += (element.offsetLeft - element.scrollLeft + element.clientLeft);
+        yPosition += (element.offsetTop - element.scrollTop + element.clientTop);
+        element = element.offsetParent;
+    }
+    return { x: xPosition, y: yPosition };
+}
+function rotateY() {
+    
+   var select = document.getElementById('roty');
+   var ang_deg = select.options[select.selectedIndex].value; 
+    
+    var radian =  ang_deg * (Math.PI/180.0);
+    
+    console.log( 'rotate y = ' + radian );
+    
+    gl.uniform1f( yang, radian );
+    
+  
+    
+}
+
+function animate() {
+    
+    timerID=setInterval( render, 50);
+    
+}
+
+function rotateZ() {
+    
+    var select = document.getElementById('rotz');
+    var ang_deg = select.options[select.selectedIndex].value; 
+    
+    var radian =  ang_deg * (Math.PI/180.0);
+    
+    console.log( 'rotate z = ' + radian );
+    
+    gl.uniform1f( zang, radian );
+    
+    
+}
+
+function scale() {
+    
+    var select = document.getElementById('scale');
+    var s_val = select.options[select.selectedIndex].value;
+    
+    console.log( 'scale = ' + s_val );
+    
+    gl.uniform1f( sx, s_val );
+    gl.uniform4f( cm, 0, 0.0, 0.0, 0.0); 
+    
+    
+    
+    
+}
+function createNorm(){
+		N = new Array( V.length );
+    n = new Array( V.length );
+
+    for ( var i=0; i<V.length; i++ ) {
+        N[i] = vec3();
+        n[i] = 0.0;
+    }
+    
+    for ( var i=0; i<F.length; i++ ) {
+
+        var idx_v1 = F[i][0];
+        var idx_v2 = F[i][1];
+        var idx_v3 = F[i][2]; 
+        
+        var v1 = V[ idx_v1 ];
+        var v2 = V[ idx_v2 ];
+        var v3 = V[ idx_v3 ];
+        
+        var t1 = subtract(v2, v1);
+        var t2 = subtract(v2, v3);
+        var normal = normalize( cross( t1, t2 ) );
+
+        N[ idx_v1 ] = add( N[ idx_v1 ], vec3( normal ) );
+        N[ idx_v2 ] = add( N[ idx_v2 ], vec3( normal ) );
+        N[ idx_v3 ] = add( N[ idx_v3 ], vec3( normal ) );
+
+        n[ idx_v1 ] = n[ idx_v1 ] + 1.0;  
+        n[ idx_v2 ] = n[ idx_v2 ] + 1.0;
+        n[ idx_v3 ] = n[ idx_v3 ] + 1.0;
+        
+    }
+
+    for ( var i=0; i<V.length; i++ ) {
+          N[i] = mult( N[i], vec3(1/n[i],1/n[i],1/n[i] ) );
+    }
+    
+}
+function createMesh() {
+    
+     for ( var i=0; i<F.length; i++ ) {
+
+        var idx_v1 = F[i][0];
+        var idx_v2 = F[i][1];
+        var idx_v3 = F[i][2]; 
+        
+        var v1 = V[ idx_v1 ];
+        var v2 = V[ idx_v2 ];
+        var v3 = V[ idx_v3 ];
+
+        mesh.push( v1 );
+        mesh.push( v2 );
+        mesh.push( v3 );
+        
+        normals.push( N[ idx_v1 ] );
+        normals.push( N[ idx_v2 ] );
+        normals.push( N[ idx_v3 ] );
+        
+    }
+    
+}
+
+
+function createColors() {
+    
+    var cnt=0;
+
+    for ( var i=0; i<F.length; i++ ) 	
+    {
+
+          
+          	if(i >= 0 && i <= 700){
+          		for ( var j=0; j<10; j++) color[cnt++]=mult(vec4(0,1,0, 1.0), materialDiffuse);
+              }
+             
+          if(i >= 700 && i <= 1000){
+            for ( var j=0; j<10; j++) color[cnt++]=mult(vec4(1,0,0, 1.0), materialDiffuse);    
+          }
+          if(i >= 1000 && i <= 1500){
+            for ( var j=0; j<10; j++) color[cnt++]=mult(vec4(0,0,1, 1.0), materialDiffuse);    
+          }
+          
+          else{
+           for ( var j=0; j<10; j++) color[cnt++]=mult(vec4(1,1,1, 1.0), materialDiffuse);
+          }
+    }     
+    
+}
+
+function bufferData() {
+    
+    var bufferId = gl.createBuffer();
+    var colorId = gl.createBuffer();
+    var normalId = gl.createBuffer();
+    
+    gl.bindBuffer( gl.ARRAY_BUFFER, normalId);
+    gl.vertexAttribPointer( vNormal, 3, gl.FLOAT, false, 0, 0 );
+    gl.enableVertexAttribArray( vNormal);
+    gl.bufferData( gl.ARRAY_BUFFER, flatten(normals), gl.STATIC_DRAW );
+    
+    
+    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId );
+    gl.vertexAttribPointer( vPosition,3, gl.FLOAT, false, 0, 0 );
+    gl.enableVertexAttribArray( vPosition );     
+    gl.bufferData( gl.ARRAY_BUFFER, flatten(mesh), gl.STATIC_DRAW );
+    
+    gl.bindBuffer(gl.ARRAY_BUFFER, colorId);
+    gl.vertexAttribPointer(vColor, 4, gl.FLOAT, false, 0, 0);
+    gl.enableVertexAttribArray( vColor );     
+    gl.bufferData( gl.ARRAY_BUFFER, flatten(color), gl.STATIC_DRAW );
+    
+
+    
+}
+
+function render() {
+    for ( var i=0; i<F.length*3; i+=3) gl.drawArrays( gl.TRIANGLES, i, 3 );
+   
+}
+
+function randomRange(min,max) {
+    return Math.random() * (max-min) + min;
+}
+
+
+//]]> 
+
+</script>
+
+</body>
+
+</html>
