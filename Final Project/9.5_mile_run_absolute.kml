@@ -30,7 +30,7 @@
           <IconStyle>
             <scale>1.3</scale>
             <Icon>
-              <href>https://connect.garmin.com/image\main\icons\kml\grn-play.png</href>
+              <href>http://static.cdn-seekingalpha.com/uploads/2015/6/957061_14337863935295_rId6.png</href>
             </Icon>
             <hotSpot yunits="fraction" y="0.0" xunits="fraction" x="0.5"/>
           </IconStyle>
@@ -218,7 +218,7 @@
           <IconStyle>
             <scale>1.3</scale>
             <Icon>
-              <href>http://maps.google.com/mapfiles/kml/paddle/red-square.png</href>
+              <href>http://marilynmckenna.com/wp-content/uploads/2015/04/thumbnail.jpg</href>
             </Icon>
             <hotSpot yunits="fraction" y="0.0" xunits="fraction" x="0.5"/>
           </IconStyle>
